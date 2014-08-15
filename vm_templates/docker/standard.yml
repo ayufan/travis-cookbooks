@@ -3,5 +3,10 @@ json:
     ssl: false
   travis_build_environment:
     update_hosts: false
+  postgresql:
+    ssl: false
+    data_on_ramfs: false
+  mongodb:
+    smallfiles: true
 recipes:
   - mysql::server

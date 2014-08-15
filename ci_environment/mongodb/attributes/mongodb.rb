@@ -31,6 +31,7 @@ default[:mongodb][:noscripting] = false
 default[:mongodb][:notablescan] = false
 default[:mongodb][:noprealloc]  = false
 default[:mongodb][:nssize]      = false
+default[:mongodb][:smallfiles]  = false
 
 
 

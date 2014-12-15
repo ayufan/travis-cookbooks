@@ -22,6 +22,7 @@
 # THE SOFTWARE.
 
 include_recipe "timezone"
+include_recipe "sysctl"
 
 # installs custom templates for sshd_config and ssh upstart script. MK.
 include_recipe "openssh"
@@ -77,7 +78,6 @@ end
 
 execute "hostname #{hostname}" do
   user "root"
-  not_if { !node[:travis_build_environment][:update_hosts] }
 end
 
 
@@ -112,6 +112,8 @@ cookbook_file "/etc/sudoers.d/env_keep" do
 
   source "etc/sudoers/env_keep"
 end
+
+include_recipe "iptables"
 
 template "/etc/environment" do
   owner "root"
